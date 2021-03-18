@@ -34,7 +34,7 @@ services:
       context: ./saleor-storefront
       dockerfile: ./Dockerfile.dev
       args:
-        - API_URI: '116.203.46.41:9196'
+        API_URI: '116.203.46.41:9196'
     ports:
       - 9197:3000
     restart: unless-stopped
@@ -48,7 +48,7 @@ services:
       context: ./saleor-dashboard
       dockerfile: ./Dockerfile.dev
       args:
-        - API_URI: '116.203.46.41:9196'
+        API_URI: '116.203.46.41:9196'
     ports:
       - 9198:9000
     restart: unless-stopped
