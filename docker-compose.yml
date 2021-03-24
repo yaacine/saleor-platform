@@ -28,7 +28,7 @@ services:
       - JAEGER_AGENT_HOST=jaeger
       - STOREFRONT_URL=http://116.203.46.41:9101/
       - DASHBOARD_URL=http://116.203.46.41:9102/
-    mem_limit: 1024m
+    #mem_limit: 1024m
   storefront:
     build:
       context: ./saleor-storefront
@@ -43,7 +43,7 @@ services:
       - ./saleor-storefront/:/app:cached
       - /app/node_modules/
     command: npm start #-- --host 0.0.0.0
-    mem_limit: 1024m
+    #mem_limit: 1024m
   dashboard:
     build:
       context: ./saleor-dashboard
@@ -57,7 +57,7 @@ services:
       - ./saleor-dashboard/:/app:cached
       - /app/node_modules/
     command: npm start -- --host 0.0.0.0
-    mem_limit: 1024m
+    #mem_limit: 1024m
   db:
     image: library/postgres:11.1-alpine
     ports:
@@ -70,7 +70,7 @@ services:
     environment:
       - POSTGRES_USER=saleor
       - POSTGRES_PASSWORD=saleor
-    mem_limit: 1024m
+    #mem_limit: 1024m
   redis:
     image: library/redis:5.0-alpine
     ports:
@@ -80,7 +80,7 @@ services:
       - saleor-backend-tier
     volumes:
       - saleor-redis:/data
-    mem_limit: 1024m
+    #mem_limit: 1024m
   worker:
     build:
       context: ./saleor
@@ -102,7 +102,7 @@ services:
       - saleor-media:/app/media
     environment:
       - EMAIL_URL=smtp://mailhog:1025
-    mem_limit: 1024m
+    #mem_limit: 1024m
   jaeger:
     image: jaegertracing/all-in-one
     ports:
@@ -116,7 +116,7 @@ services:
     restart: unless-stopped
     networks:
       - saleor-backend-tier
-    mem_limit: 1024m
+    #mem_limit: 1024m
 
   mailhog:
     image: mailhog/mailhog
@@ -126,7 +126,7 @@ services:
     restart: unless-stopped
     networks:
       - saleor-backend-tier
-    mem_limit: 1024m
+    #mem_limit: 1024m
     
 volumes:
   saleor-db:
