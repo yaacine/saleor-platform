@@ -3,7 +3,11 @@ version: '2'
 services:
   api:
     ports:
+<<<<<<< HEAD
       - 9100:8000
+=======
+      - 9098:8000
+>>>>>>> 084a6a7127e4d909c84953701d857a2a555c8c7d
     build:
       context: ./saleor
       dockerfile: ./Dockerfile
@@ -61,7 +65,11 @@ services:
   db:
     image: library/postgres:11.1-alpine
     ports:
+<<<<<<< HEAD
       - 9103:5432
+=======
+      - 9096:5432
+>>>>>>> 084a6a7127e4d909c84953701d857a2a555c8c7d
     restart: unless-stopped
     networks:
       - saleor-backend-tier
